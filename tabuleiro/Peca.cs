@@ -25,7 +25,10 @@ namespace tabuleiro
             QteMovimentos++;
         }
 
-        public abstract bool[,] MovimentosPossiveis();
+        public bool PodeMoverPara(Posicao posicao)
+        {
+            return MovimentosPossiveis()[posicao.Linha, posicao.Coluna];
+        }
 
         public bool ExisteMovimentosPossiveis()
         {
@@ -40,5 +43,7 @@ namespace tabuleiro
 
             return false;
         }
+
+        public abstract bool[,] MovimentosPossiveis();
     }
 }
