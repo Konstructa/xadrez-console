@@ -2,6 +2,7 @@
 using tabuleiro;
 using tabuleiro.Enum;
 using xadrez;
+using xadrez_console.tabuleiro.Exceptions;
 
 namespace xadrez_console.xadrez
 {
@@ -49,6 +50,24 @@ namespace xadrez_console.xadrez
             else
             {
                 JogadorAtual = Cor.Branca;
+            }
+        }
+
+        public void ValidarPosicaoDeOrigem(Posicao posicao)
+        {
+            if (Tabuleiro.Peca(posicao) == null)
+            {
+                throw new TabuleiroException("Não existe peça na posição escolhida!");
+            }
+
+            if (JogadorAtual != Tabuleiro.Peca(posicao).Cor)
+            {
+                throw new TabuleiroException("A peça escolhida não é sua");
+            }
+
+            if (!Tabuleiro.Peca(posicao).ExisteMovimentosPossiveis())
+            {
+                throw new TabuleiroException("Não há movimentos disponíveis para essa peça");
             }
         }
 
