@@ -1,0 +1,11 @@
+﻿
+
+namespace xadrez_console.tabuleiro.Exceptions
+{
+    class TabuleiroException : Exception
+    {
+        public TabuleiroException(string? message) : base(message)
+        {
+        }
+    }
+}
