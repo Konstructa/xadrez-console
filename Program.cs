@@ -1,7 +1,7 @@
 ﻿using tabuleiro;
 using tabuleiro.Enum;
 using xadrez;
-using xadrez_console.tabuleiro.Exceptions;
+using xadrez_console.xadrez;
 
 namespace xadrez_console
 {
@@ -11,18 +11,35 @@ namespace xadrez_console
         {
             try
             {
-                Tabuleiro tabuleiro = new(8, 8);
+                PartidaDeXadrez partida = new ();
 
-                Peca peca = new(Cor.Preta, tabuleiro);
-                tabuleiro.ColocarPeca(new Torre(Cor.Preta, tabuleiro), new Posicao(0, 0));
-                tabuleiro.ColocarPeca(new Rei(Cor.Preta, tabuleiro), new Posicao(2, 9));
-                tabuleiro.ColocarPeca(new Torre(Cor.Preta, tabuleiro), new Posicao(0, 0));
+                while(!partida.Terminada)
+                {
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida.Tabuleiro);
+                    Console.WriteLine();
+                    Console.WriteLine("Turno: " + partida.Turno);
+                    Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
 
-                //Console.WriteLine("Posicao: " + peca.Posicao);
+                    Console.WriteLine();
+                    Console.Write("Origem: ");
+                    Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
 
-                Tela.ImprimirTabuleiro(tabuleiro);
+                    bool[,] posicoesPossiveis = partida.Tabuleiro.Peca(origem).MovimentosPossiveis();
+
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida.Tabuleiro, posicoesPossiveis);
+
+                    Console.WriteLine();
+                    Console.Write("Destino: ");
+                    Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
+
+                    partida.RealizaJogada(origem, destino);
+                }
+
+                
             }
-            catch (TabuleiroException e)
+            catch (Exception e)
             {
 
                 Console.WriteLine(e.Message);
