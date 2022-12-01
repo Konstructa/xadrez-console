@@ -28,7 +28,7 @@ namespace xadrez
             {
                 mat[posicao.Linha, posicao.Coluna] = true;
                 if (Tabuleiro.Peca(posicao) != null && Tabuleiro.Peca(posicao).Cor != Cor) break;
-                posicao.Linha -= 1;
+                posicao.Linha--;
             }
 
             //sul
@@ -37,7 +37,7 @@ namespace xadrez
             {
                 mat[posicao.Linha, posicao.Coluna] = true;
                 if (Tabuleiro.Peca(posicao) != null && Tabuleiro.Peca(posicao).Cor != Cor) break;
-                posicao.Linha += 1;
+                posicao.Linha++;
             }
 
             //direita
@@ -46,7 +46,7 @@ namespace xadrez
             {
                 mat[posicao.Linha, posicao.Coluna] = true;
                 if (Tabuleiro.Peca(posicao) != null && Tabuleiro.Peca(posicao).Cor != Cor) break;
-                posicao.Coluna += 1;
+                posicao.Coluna++;
             }
 
             //esquerda
@@ -55,7 +55,7 @@ namespace xadrez
             {
                 mat[posicao.Linha, posicao.Coluna] = true;
                 if (Tabuleiro.Peca(posicao) != null && Tabuleiro.Peca(posicao).Cor != Cor) break;
-                posicao.Coluna -= 1;
+                posicao.Coluna--;
             }
 
 

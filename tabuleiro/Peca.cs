@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using tabuleiro.Enum;
+﻿using tabuleiro.Enum;
 
 namespace tabuleiro
 {
@@ -40,9 +35,9 @@ namespace tabuleiro
             bool[,] mat = MovimentosPossiveis();
             for (int i = 0; i < Tabuleiro.Linhas; i++)
             {
-                for(int j = 0; j < Tabuleiro.Linhas; j++)
+                for(int j = 0; j < Tabuleiro.Colunas; j++)
                 {
-                    if (mat[i, j]) return true;
+                     if (mat[i, j]) return true;
                 }
             }
 

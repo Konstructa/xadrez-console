@@ -20,6 +20,7 @@ namespace xadrez_console
                 Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
 
                 if (partida.Xeque) Console.WriteLine("Xeque!");
+
             } else
             {
                 Console.WriteLine("Xeque-mate!");
@@ -60,7 +61,7 @@ namespace xadrez_console
             for (int i = 0; i < tabuleiro.Linhas; i++)
             {
                 Console.Write( (8 - i) + " ");
-                for (int j = 0; j < tabuleiro.Linhas; j++)
+                for (int j = 0; j < tabuleiro.Colunas; j++)
                 { 
                     ImprimirPeca(tabuleiro.Peca(i, j));
                 }
@@ -78,7 +79,7 @@ namespace xadrez_console
             for (int i = 0; i < tabuleiro.Linhas; i++)
             {
                 Console.Write((8 - i) + " ");
-                for (int j = 0; j < tabuleiro.Linhas; j++)
+                for (int j = 0; j < tabuleiro.Colunas; j++)
                 {
                     if (posicoesPossiveis[i, j])
                     {
