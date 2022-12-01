@@ -12,8 +12,8 @@ namespace xadrez_console.xadrez
         public int Turno { get; private set; }
         public Cor JogadorAtual { get; private set; }
         public bool Terminada { get; private set; }
-        private HashSet<Peca> Pecas;
-        private HashSet<Peca> Capturadas;
+        private readonly HashSet<Peca> Pecas;
+        private readonly HashSet<Peca> Capturadas;
         public bool Xeque { get; private set; }
 
         public PartidaDeXadrez()
@@ -158,10 +158,11 @@ namespace xadrez_console.xadrez
                     {
                         if(mat[i,j])
                         {
+                            Posicao origem = peca.Posicao;
                             Posicao destino = new (i, j);
-                            Peca pecaCapturada = ExecutaMovimento(peca.Posicao, destino);
+                            Peca pecaCapturada = ExecutaMovimento(origem, destino);
                             bool testeXeque = EstaEmXeque(cor);
-                            DesfazMovimento(peca.Posicao, destino, pecaCapturada);
+                            DesfazMovimento(origem, destino, pecaCapturada);
 
                             if(!testeXeque)
                             {
@@ -203,7 +204,7 @@ namespace xadrez_console.xadrez
 
         public HashSet<Peca> PecasCapturadas(Cor cor)
         {
-            HashSet<Peca> pecasCapturadas = new HashSet<Peca>();
+            HashSet<Peca> pecasCapturadas = new();
 
             foreach(Peca peca in Capturadas) {
                 if(peca.Cor == cor) pecasCapturadas.Add(peca);
@@ -214,7 +215,7 @@ namespace xadrez_console.xadrez
 
         public HashSet<Peca> PecasEmjogo(Cor cor)
         {
-            HashSet<Peca> pecasEmJogo = new HashSet<Peca>();
+            HashSet<Peca> pecasEmJogo = new();
 
             foreach (Peca peca in Pecas)
             {
