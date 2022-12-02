@@ -39,7 +39,7 @@ namespace xadrez
                 }
 
                 posicao.DefinirValores(Posicao.Linha - 2, Posicao.Coluna);
-                if (Tabuleiro.PosicaoValida(posicao) && Livre(posicao) && QteMovimentos == 0)
+                if (Tabuleiro.PosicaoValida(posicao) && Livre(posicao) && QteMovimentos == 0 && Tabuleiro.PosicaoValida(posicao))
                 {
                     mat[posicao.Linha, posicao.Coluna] = true;
                 }

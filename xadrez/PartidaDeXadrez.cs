@@ -26,6 +26,7 @@ namespace xadrez_console.xadrez
             Xeque = false;
             Pecas = new HashSet<Peca>();
             Capturadas = new HashSet<Peca>();
+            VulneravelEnPassant = null;
             ColocarPecas();
         }
 
@@ -213,8 +214,6 @@ namespace xadrez_console.xadrez
             {
                 JogadorAtual = Cor.Branca;
             }
-
-            //JogadorAtual = Adversaria(JogadorAtual);
         }
 
         private Cor Adversaria(Cor cor)

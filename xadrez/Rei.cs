@@ -94,31 +94,31 @@ namespace xadrez
             if (QteMovimentos == 0 && !partidaDeXadrez.Xeque)
             {
                 //#jogadaespecial roque pequeno
-                Posicao posT1 = new(posicao.Linha, posicao.Coluna + 3);
+                Posicao posT1 = new(Posicao.Linha, Posicao.Coluna + 3);
 
                 if (TesteTorreParaRoque(posT1))
                 {
-                    Posicao p1 = new(posicao.Linha, posicao.Coluna + 1);
-                    Posicao p2 = new(posicao.Linha, posicao.Coluna + 2);
+                    Posicao p1 = new(Posicao.Linha, Posicao.Coluna + 1);
+                    Posicao p2 = new(Posicao.Linha, Posicao.Coluna + 2);
 
                     if(Tabuleiro.Peca(p1) == null && Tabuleiro.Peca(p2) == null)
                     {
-                        mat[posicao.Linha, posicao.Coluna + 2] = true;
+                        mat[Posicao.Linha, Posicao.Coluna + 2] = true;
                     }
                 }
 
                 //#jogadaespecial roque grande
-                Posicao posT2 = new(posicao.Linha, posicao.Coluna - 4);
+                Posicao posT2 = new(Posicao.Linha, Posicao.Coluna - 4);
 
                 if (TesteTorreParaRoque(posT2))
                 {
-                    Posicao p1 = new(posicao.Linha, posicao.Coluna - 1);
-                    Posicao p2 = new(posicao.Linha, posicao.Coluna - 2);
-                    Posicao p3 = new(posicao.Linha, posicao.Coluna - 2);
+                    Posicao p1 = new(Posicao.Linha, Posicao.Coluna - 1);
+                    Posicao p2 = new(Posicao.Linha, Posicao.Coluna - 2);
+                    Posicao p3 = new(Posicao.Linha, Posicao.Coluna - 2);
 
                     if (Tabuleiro.Peca(p1) == null && Tabuleiro.Peca(p2) == null && Tabuleiro.Peca(p3) == null)
                     {
-                        mat[posicao.Linha, posicao.Coluna - 2] = true;
+                        mat[Posicao.Linha, Posicao.Coluna - 2] = true;
                     }
                 }
             }

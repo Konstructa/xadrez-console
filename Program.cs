@@ -51,6 +51,8 @@ namespace xadrez_console
             {
 
                 Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace);
+                Console.WriteLine(e);
             }
         }
     }

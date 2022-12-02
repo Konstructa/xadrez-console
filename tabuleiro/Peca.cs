@@ -13,6 +13,8 @@ namespace tabuleiro
         {
             Cor = cor;
             Tabuleiro = tabuleiro;
+            Posicao = null;
+            QteMovimentos = 0;
         }
 
         public void IncrementarQteMovimentos()
