@@ -81,7 +81,8 @@ namespace xadrez
                 }
 
                 posicao.DefinirValores(Posicao.Linha + 2, Posicao.Coluna);
-                if (Tabuleiro.PosicaoValida(posicao) && Livre(posicao) && QteMovimentos == 0)
+                Posicao p2 = new (Posicao.Linha + 1, Posicao.Coluna);
+                if (Tabuleiro.PosicaoValida(posicao) && Livre(posicao) && Tabuleiro.PosicaoValida(p2) && Livre(p2) && QteMovimentos == 0)
                 {
                     mat[posicao.Linha, posicao.Coluna] = true;
                 }
